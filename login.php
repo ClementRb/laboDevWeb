@@ -1,9 +1,13 @@
  <html>
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+ <head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
   <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+  </head>
+  
 
-    
-<div class="row">
+ <body> 
+<div class="row" >
     <div class="col s4"></div>
    <div class="col s4">
    <div class=" col s12 center">
@@ -13,21 +17,22 @@
       <div class="row">
         <div class="input-field col s12">
           <input id="login" type="text" name="login" class="validate">
-          <label for="email">Login</label>
+          <label for="email" class="indigo-text text-darken-4" data-error="wrong" data-success="right">Login</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
           <input id="password" type="password" name="password"class="validate">
-          <label for="password">Password</label>
+          <label for="password" class="indigo-text text-darken-4" data-error="wrong" data-success="right">Password</label>
         </div>
       </div>
-      <button type="submit" name="submit" class="btn btn-primary right">Connexion</button>
+      <button type="submit" name="submit" class="btn waves-effect waves-light indigo darken-4 right">Connexion</button>
     </form>
-    <p>Pas de compte ? Inscrivez-vous <a href="register.php"> ici </a></p>
+    <p>Pas de compte ? Inscrivez-vous <a href="register.php" class="red-text text-accent-4"> ici </a></p>
     </div>
     <div class="col s4"></div>
   </div>
+  </body>  
 </html>
  
 
@@ -58,14 +63,12 @@ $_POST['password'] =  $_POST['password'];
   $req = $bdd->prepare($sql);
   $req->execute();
   $data = $req->fetch();
-    var_dump($data);
-    var_dump($password);
 
   if($data['password'] != $password) {
-    echo '<div class="alert alert-dismissable alert-danger">
-  <button type="button" class="close" data-dismiss="alert">x</button>
-  <strong>Oh Non !</strong> Mauvais login / password. Merci de recommencer !
-</div>';
+    echo 
+        '<div class="center red-text text-accent-4">
+  <h5>Oh Non !</strong> Mauvais login / password. Merci de recommencer !<h5>
+          </div>';
   }
   
   else {
@@ -78,12 +81,12 @@ $_POST['password'] =  $_POST['password'];
   }    
 }
 else {
-  $champs = '<p><b>(Remplissez tous les champs pour vous connectez !)</b></p>';
+  $champs = '<p class="center"><b>(Remplissez tous les champs pour vous connectez !)</b></p>';
 }
 
 
 ?> 
 
-
+<script src="js/main.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
