@@ -3,7 +3,7 @@
   try
   {
   
-   $bdd = new PDO('mysql:host=localhost;dbname=instagram;charset=utf8', 'clement', 'clement');
+   $bdd = new PDO('mysql:host=localhost;dbname=instagram;charset=utf8', 'root', '');
   
   }
   
@@ -27,6 +27,7 @@ $req = $bdd->prepare('INSERT INTO membre(login, password) VALUES (:login, :passw
 
 
 $req->execute(array("login" => $login, "password" => $password));
+       // print_r($req->errorInfo());
 
 
 if(!empty($login) && !empty($password))
@@ -49,6 +50,7 @@ if(empty($login) && empty($password))
 
 }else{
  
+   // var_dump($login);
 header('Location:login.php');
 
 }

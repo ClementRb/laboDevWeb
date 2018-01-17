@@ -45,7 +45,7 @@
  try
   {
   
-   $bdd = new PDO('mysql:host=localhost;dbname=instagram;charset=utf8', 'clement', 'clement');
+   $bdd = new PDO('mysql:host=localhost;dbname=instagram;charset=utf8', 'root', '');
   
   }
   
@@ -59,7 +59,7 @@ if(isset($_POST) && !empty($_POST['login']) && !empty($_POST['password'])) {
 $_POST['password'] =  $_POST['password'];
   extract($_POST);
   // on recupére le password de la table qui correspond au login du visiteur
-  $sql = "select password from membre where login='".$login."'";
+  $sql = "select * from membre where login='".$login."'";
   $req = $bdd->prepare($sql);
   $req->execute();
   $data = $req->fetch();
@@ -73,8 +73,12 @@ $_POST['password'] =  $_POST['password'];
   
   else {
     session_start();
-    $_SESSION['login'] = $login;  
-    header('Location:index.php');
+    $_SESSION['membre_id'] = $data['membre_id'];
+       echo '<div class="alert center green-text text-accent-4">
+
+  <strong>Yes !</strong> Vous etes bien logué, Redirection dans 2 secondes ! <meta http-equiv="refresh" content="2; URL=index.php">
+</div>';
+    //header('Location:index.php'); 
   
     // ici vous pouvez afficher un lien pour renvoyer
     // vers la page d'accueil de votre espace membres 

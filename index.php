@@ -1,6 +1,6 @@
 <?php
     session_start();
-if (!isset($_SESSION['login'])){
+if (!isset($_SESSION['membre_id'])){
     header('Location:login.php');
 }
 ?>
@@ -10,6 +10,26 @@ if (!isset($_SESSION['login'])){
 <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
   <link rel="stylesheet" href="css/style.css">
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet"/>
+        <!-- Web Fonts -->
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'/>
+        <!-- Animate css -->
+        <link href="css/animate.css'" rel="stylesheet"/>
+        <!-- Magnific css -->
+        <link href="css/magnific-popup.css'" rel="stylesheet"/>
+        <!-- Custom styles CSS -->
+        <link href="css/style.css'" rel="stylesheet" media="screen"/>
+        <!-- Responsive CSS -->
+        <link href="css/responsive.css'" rel="stylesheet"/>
+
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
   <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   
@@ -20,9 +40,9 @@ if (!isset($_SESSION['login'])){
     <div class="navbar-fixed">
     <nav>
      <div class="nav-wrapper">
-     <a href="#" class="brand-logo center">Logo</a>
+     <a href="index.php" class="brand-logo center">Instagram</a>
            <ul id="nav-mobile" class="left">
-           <li>&nbsp;Bonjour <?php echo $_SESSION['login']; ?> </li>
+           <li><a href="profil.php">&nbsp;Profil </a></li>
            </ul>
            <ul id="nav-mobile" class="right">
                <li><a href="logout.php">Déconnexion</a></li>
@@ -35,20 +55,27 @@ if (!isset($_SESSION['login'])){
        
        
         <body>
-        <div class="col s4">
-    <form method="post" enctype="multipart/form-data">
-  <div>
-    <label for="image_uploads">Sélectionner des images à uploader (PNG, JPG)</label>
-    <input type="file" id="image_uploads" name="image_uploads" accept=".jpg, .jpeg, .png">
-  </div>
-  <div class="preview">
-    <p>Aucun fichier sélectionné pour le moment</p>
-  </div>
-  <div>
-    <button>Envoyer</button>
-  </div>
-</form>
-           </div>
+   <div class="col s4">
+       <?php
+      if( !empty($message) ) 
+      {
+        echo '<p>',"\n";
+        echo "\t\t<strong>", htmlspecialchars($message) ,"</strong>\n";
+        echo "\t</p>\n\n";
+      }
+    ?>
+           <form enctype="multipart/form-data" action="upload.php" method="post">
+    <fieldset>
+        <legend>Formulaire</legend>
+          <p>
+            <label for="fichier_a_uploader" title="Recherchez le fichier à uploader !">Envoyer le fichier :</label>
+            <input type="hidden" name="MAX_FILE_SIZE" value="10000000" />
+            <input name="fichier" type="file" id="fichier_a_uploader" />
+            <input type="submit" name="submit" value="Uploader" />
+          </p>
+      </fieldset>
+    </form>
+            </div>     
 
  
 
@@ -59,10 +86,23 @@ if (!isset($_SESSION['login'])){
  
 </body>
  
-    <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/file_upload.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script type="text/javascript"></script>
+<!-- Javascript files -->
+<script src="js/jquery.js'"></script>
+<script src="js/jquery.stellar.min.js'"></script>
+<script src="js/jquery.sticky.js'"></script>
+<script src="js/smoothscroll.js'"></script>
+<script src="js/wow.min.js'"></script>
+<script src="js/jquery.countTo.js'"></script>
+<script src="js/jquery.inview.min.js'"></script>
+<script src="js/jquery.easypiechart.js'"></script>
+<script src="js/jquery.shuffle.min.js'"></script>
+<script src="js/jquery.magnific-popup.min.js'"></script>
+<script src="js/jquery.fitvids.js'"></script>
+
+
+    
    </html>
     
