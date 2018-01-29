@@ -45,6 +45,13 @@ body, html{
     overflow-x:hidden;
 }
 
+/*================================================
+Image container
+ */
+nav{
+    background-color: #b71c1c !important;
+}
+
 /* Link style
 ---------------------------------------------------------*/
 a {

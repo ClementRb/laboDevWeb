@@ -67,18 +67,16 @@ catch
 <section id="blog" class="latest-blog-section section-padding">
     <div class="container">
         <h2 class="section-title wow fadeInUp"><?php
-            $affiche_nom = $bdd->prepare('SELECT login FROM membre WHERE membre_id = ?');
-            $affiche_nom->execute(array($_SESSION["membre_id"]));
-            $result = $affiche_nom->fetch();
-            echo $result["login"];
+
+            echo $_GET["login"];
             ?></h2>
         <div class="row">
 
 
 
 <?php
-$reponse = $bdd->prepare('SELECT * FROM image  WHERE membre_id = ? ORDER BY date DESC ');
-$reponse->execute(array($_SESSION["membre_id"]));
+$reponse = $bdd->prepare('SELECT * FROM image INNER JOIN membre ON image.membre_id = membre.membre_id WHERE membre.login = ? ORDER BY image.date DESC');
+$reponse->execute(array($_GET["login"]));
 
 while ($donnees = $reponse->fetch()){
        echo '

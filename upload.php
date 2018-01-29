@@ -1,7 +1,7 @@
 <?php // Constantes
 define('TARGET', 'images/');    // Repertoire cible
-define('MAX_SIZE', 100000);    // Taille max en octets du fichier
-define('WIDTH_MAX', 800);    // Largeur max de l'image en pixels
+define('MAX_SIZE', 1000000000);    // Taille max en octets du fichier
+define('WIDTH_MAX', 600);    // Largeur max de l'image en pixels
 define('HEIGHT_MAX', 800);    // Hauteur max de l'image en pixels
  
 // Tableaux de donnees
@@ -84,36 +84,54 @@ if(!empty($_POST))
             else
             {
               // Sinon on affiche une erreur systeme
-              $message = 'Problème lors de l\'upload !';
+                echo '<div class="alert center red-text text-accent-4">
+
+  <strong> Problème lors de l\'upload ! </strong> <meta http-equiv="refresh" content="2; URL=index.php">
+</div>';
             }
           }
           else
           {
-            $message = 'Une erreur interne a empêché l\'uplaod de l\'image';
+
+              echo '<div class="alert center red-text text-accent-4">
+
+  <strong> Une erreur interne a empêché l\'uplaod de l\'image </strong> <meta http-equiv="refresh" content="2; URL=index.php">
+</div>';
           }
         }
         else
         {
-          // Sinon erreur sur les dimensions et taille de l'image
-          $message = 'Erreur dans les dimensions de l\'image !';
+            echo '<div class="alert center red-text text-accent-4">
+
+  <strong>Erreur dans les dimensions de l\'image ! La hauteur maximale est de 800 pixels et la largeur de 400 </strong> <meta http-equiv="refresh" content="2; URL=index.php">
+</div>';
+
         }
       }
       else
       {
-        // Sinon erreur sur le type de l'image
-        $message = 'Le fichier à uploader n\'est pas une image !';
+          echo '<div class="alert center red-text text-accent-4">
+
+  <strong>Le fichier à uploader n\'est pas une image ! </strong> <meta http-equiv="refresh" content="2; URL=index.php">
+</div>';
       }
     }
     else
     {
-      // Sinon on affiche une erreur pour l'extension
-      $message = 'L\'extension du fichier est incorrecte !';
+        echo '<div class="alert center red-text text-accent-4">
+
+  <strong>L\'extension du fichier est incorrecte ! </strong> <meta http-equiv="refresh" content="2; URL=index.php">
+</div>';
+
     }
   }
   else
   {
-    // Sinon on affiche une erreur pour le champ vide
-    $message = 'Veuillez remplir le formulaire svp !';
+      echo '<div class="alert center red-text text-accent-4">
+
+  <strong>Veuillez remplir le formulaire svp ! </strong> <meta http-equiv="refresh" content="2; URL=index.php">
+</div>';
+
   }
 }
 echo $message;

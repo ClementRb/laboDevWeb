@@ -11,7 +11,7 @@
 <body>
    <div class="row">
     <div class="col s4">
-       <a href="login.php" class="retour_login"><button class="btn waves-effect waves-light indigo darken-4 btn-floating right"><i class="small material-icons">arrow_back</i> </button> </a>
+       <a href="login" class="retour_login"><button class="btn waves-effect waves-light indigo darken-4 btn-floating right"><i class="small material-icons">arrow_back</i> </button> </a>
     </div>
    <div class="col s4">
    <div class=" col s12 center">

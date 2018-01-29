@@ -28,7 +28,7 @@
       </div>
       <button type="submit" name="submit" class="btn waves-effect waves-light indigo darken-4 right">Connexion</button>
     </form>
-    <p>Pas de compte ? Inscrivez-vous <a href="register.php" class="red-text text-accent-4"> ici </a></p>
+    <p>Pas de compte ? Inscrivez-vous <a href="register" class="red-text text-accent-4"> ici </a></p>
     </div>
     <div class="col s4"></div>
   </div>
@@ -76,7 +76,7 @@ $_POST['password'] =  $_POST['password'];
     $_SESSION['membre_id'] = $data['membre_id'];
        echo '<div class="alert center green-text text-accent-4">
 
-  <strong>Yes !</strong> Vous etes bien logué, Redirection dans 2 secondes ! <meta http-equiv="refresh" content="2; URL=index.php">
+  <strong>Yes !</strong> Vous etes bien logué, Redirection dans 2 secondes ! <meta http-equiv="refresh" content="2; URL=accueil">
 </div>';
     //header('Location:index.php'); 
   
