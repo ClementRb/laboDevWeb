@@ -5,7 +5,7 @@ try {
 } catch (Exception $e) {
     die('Erreur :' . $e->getMessage());
 }if (!isset($_SESSION['membre_id'])){
-    header('Location:login.php');
+    header('Location:login');
 } ?>
 
 <html xmlns="">
@@ -64,6 +64,7 @@ try {
 
    </div>
     <div class="col s6">
+
         <div id="toggle">
             <form enctype="multipart/form-data" action="upload.php" method="post">
                 <p>
@@ -139,6 +140,7 @@ try {
         });
     });
     /* ]]> */
+
 </script>
 </html>
     

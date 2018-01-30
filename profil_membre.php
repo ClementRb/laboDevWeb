@@ -1,15 +1,12 @@
 <?php
 session_start();
 try {
-
     $bdd = new PDO('mysql:host=localhost;dbname=instagram;charset=utf8', 'root', '');
-}
-catch
-(Exception $e)
-{
+} catch (Exception $e) {
     die('Erreur :' . $e->getMessage());
-}
-?>
+}if (!isset($_SESSION['membre_id'])){
+    header('Location:login');
+} ?>
 
 
 <html>
@@ -81,7 +78,7 @@ $reponse->execute(array($_GET["login"]));
 while ($donnees = $reponse->fetch()){
        echo '
  
-                <div class="col-sm-4">
+                <div >
                     <article class="blog-post-wrapper col s3">
                         <div class="figure">
                             <div class="post-thumbnail">

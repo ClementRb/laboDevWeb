@@ -1,15 +1,12 @@
 <?php
 session_start();
 try {
-
     $bdd = new PDO('mysql:host=localhost;dbname=instagram;charset=utf8', 'root', '');
-}
-catch
-(Exception $e)
-{
+} catch (Exception $e) {
     die('Erreur :' . $e->getMessage());
-}
-?>
+}if (!isset($_SESSION['membre_id'])){
+    header('Location:login');
+} ?>
 
 
 <html>
@@ -17,7 +14,7 @@ catch
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet"/>
+
     <!-- Web Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'/>
     <!-- Animate css -->
@@ -32,8 +29,7 @@ catch
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
     <![endif]-->
 
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
@@ -91,7 +87,13 @@ while ($donnees = $reponse->fetch()){
                             </div>
                             </div><!-- /.figure -->
                          <header class="entry-header">
-                            <p>'. $donnees['date'].'</p>
+                           <ul class="left">
+                    <li>Posté le : '. $donnees['date'].'</li>
+                    </ul>
+                    <ul class="right">
+                    <li><a href="supprimer.php?id='. $donnees['id'].'" style="color: red;">Supprimer</a></li>
+</ul>
+                    
                             </header><!-- .entry-header -->
                     </article>
                     </div><!-- /.col-sm-4 -->

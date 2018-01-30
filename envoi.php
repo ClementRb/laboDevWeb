@@ -51,7 +51,7 @@ if(empty($login) && empty($password))
 }else{
  
    // var_dump($login);
-header('Location:login.php');
+header('Location:login');
 
 }
 
