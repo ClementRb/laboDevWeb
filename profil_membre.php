@@ -68,7 +68,7 @@ while ($donnees = $reponse->fetch()){
                     <article class="blog-post-wrapper col s3">
                         <div class="figure">
                             <div class="post-thumbnail">
-                                <img src="./images/'. $donnees['nom_image']. '" class="img-responsive " alt="">
+                                <a href="image.php?id='.$donnees['id'].'"> <img src="./images/'. $donnees['nom_image']. '" class="img-responsive " alt=""><a>
                             </div>
                             </div><!-- /.figure -->
                          <header class="entry-header">
