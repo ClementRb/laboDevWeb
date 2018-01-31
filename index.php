@@ -28,10 +28,16 @@ try {
             <div class="nav-wrapper">
                 <a href="accueil" class="brand-logo center">Postagram</a>
                 <ul id="nav-mobile" class="left">
-                    <li><a href="profil">&nbsp;Profil </a></li>
+                    <li>Bonjour <?php
+                        $affiche_nom = $bdd->prepare('SELECT login FROM membre WHERE membre_id = ?');
+                        $affiche_nom->execute(array($_SESSION["membre_id"]));
+                        $result = $affiche_nom->fetch();
+                        echo $result["login"];
+                        ?></li>
                     <li> <a href="#" id="toggler">Poster une photo</a></li>
                 </ul>
                 <ul id="nav-mobile" class="right">
+                    <li><a href="profil">&nbsp;Profil </a></li>
                     <li><a href="logout">Déconnexion</a></li>
                 </ul>
             </div>
