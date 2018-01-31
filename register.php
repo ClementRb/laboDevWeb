@@ -9,6 +9,14 @@
 </head>
  
 <body>
+<div class="navbar-fixed ">
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo center">Posttagram</a>
+        </div>
+    </nav>
+</div>
+
    <div class="row">
     <div class="col s4">
        <a href="login" class="retour_login"><button class="btn waves-effect waves-light indigo darken-4 btn-floating right"><i class="small material-icons">arrow_back</i> </button> </a>
@@ -37,12 +45,5 @@
   </div>
   </body>
 </html>
-
-
-
-
-
-
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-<script src="js/main.js"></script>

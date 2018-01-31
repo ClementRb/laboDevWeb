@@ -6,11 +6,19 @@
   </head>
   
 
- <body> 
+ <body>
+ <div class="navbar-fixed ">
+     <nav>
+         <div class="nav-wrapper">
+             <a href="#" class="brand-logo center">Postagram</a>
+         </div>
+     </nav>
+ </div>
+
 <div class="row" >
     <div class="col s4"></div>
    <div class="col s4">
-   <div class=" col s12 center">
+   <div class="col s12 center">
         <h4>Se connecter</h4>
    </div>
     <form method="post" action="">
@@ -89,8 +97,6 @@ else {
 }
 
 
-?> 
-
-<script src="js/main.js"></script>
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+?>
+ <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>

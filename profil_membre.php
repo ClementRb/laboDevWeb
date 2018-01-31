@@ -41,7 +41,7 @@ try {
     <div class="navbar-fixed">
         <nav>
             <div class="nav-wrapper">
-                <a href="accueil" class="brand-logo center">Instagram</a>
+                <a href="accueil" class="brand-logo center">Postagram</a>
                 <ul id="nav-mobile" class="left">
                     <li><a href="profil">&nbsp;Profil </a></li>
                 </ul>
@@ -99,18 +99,5 @@ while ($donnees = $reponse->fetch()){
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 <script type="text/javascript"></script>
-<!-- Javascript files -->
-
 <script src="js/jquery.js"></script>
-<script src="js/jquery.stellar.min.js"></script>
-<script src="js/jquery.sticky.js"></script>
-<script src="js/smoothscroll.js"></script>
-<script src="js/wow.min.js"></script>
-<script src="js/jquery.countTo.js"></script>
-<script src="js/jquery.inview.min.js"></script>
-<script src="js/jquery.easypiechart.js"></script>
-<script src="js/jquery.shuffle.min.js"></script>
-<script src="js/jquery.magnific-popup.min.js"></script>
-<script src="js/jquery.fitvids.js"></script>
-
 </html>
