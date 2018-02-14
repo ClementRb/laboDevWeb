@@ -9,40 +9,9 @@ try {
 } ?>
 
 <html xmlns="">
-<head>
-<!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"/>
-    <link rel="stylesheet" href="css/style.css"/>
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'/>
-    <link href="css/animate.css" rel="stylesheet"/>
-    <link href="css/magnific-popup.css" rel="stylesheet"/>
-    <link href="css/style.css" rel="stylesheet"/>
-    <link href="css/responsive.css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <title>Instagram_like</title>
-</head>
-<header>
-    <div class="navbar-fixed ">
-        <nav>
-            <div class="nav-wrapper">
-                <a href="accueil" class="brand-logo center">Postagram</a>
-                <ul id="nav-mobile" class="left">
-                    <li>Bonjour <?php
-                        $affiche_nom = $bdd->prepare('SELECT login FROM membre WHERE membre_id = ?');
-                        $affiche_nom->execute(array($_SESSION["membre_id"]));
-                        $result = $affiche_nom->fetch();
-                        echo $result["login"];
-                        ?></li>
-                </ul>
-                <ul id="nav-mobile" class="right">
-                    <li><a href="profil">&nbsp;Profil </a></li>
-                    <li><a href="logout">Déconnexion</a></li>
-                </ul>
-            </div>
-        </nav>
-    </div>
-</header>
+<?php
+include 'header.php';
+?>
 <body>
 <div class="container">
     <div class="row">
@@ -64,8 +33,13 @@ try {
     <div class="col s6">
 
    <?php
+
+   $current_uri = $_SERVER['REQUEST_URI'];
+  $uri_array = explode('/', $current_uri) ;
+  $id_image = $uri_array[sizeof($uri_array) - 1];
+
    $reponse = $bdd->prepare('SELECT nom_image, date FROM image WHERE id = ?');
-   $reponse->execute(array($_GET['id']));
+   $reponse->execute(array($id_image));
    $donnees = $reponse->fetch();
    echo '<div class="container_image" style="border-color: #0b0b0b;">
  <article class="blog-post-wrapper">
@@ -77,7 +51,7 @@ try {
                     <li>Posté le : '. $donnees['date'].'</li>
                     </ul>
                     </header>
-                <img src="./images/'. $donnees['nom_image']. '">
+                <img src="/laboDevWeb//images/'. $donnees['nom_image']. '">
                 </article>
             </div>';
     ?>
@@ -89,7 +63,7 @@ try {
 </div>
 </body>
 <script type="text/javascript"></script>
-<script src="js/jquery.js"></script>
+<script src="/laboDevWeb/js/jquery.js"></script>
 <script>
 
 </script>
