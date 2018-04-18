@@ -15,13 +15,22 @@ include 'header.php';
 ?>
 <body>
 
+<div class="container ">
+   <h2 class="section-title wow fadeInUp "  style="margin-top: 50px;"> <?php
+       echo $_GET["login"];
+    ?></h2>
+
+    <h5 class="text-center wow fadeInUp"> <?php
+        $affiche_desc = $bdd->prepare('SELECT description FROM membre WHERE login = ?');
+        $affiche_desc->execute(array($_GET["login"]));
+        $result = $affiche_desc->fetch();
+        echo  $result["description"];
+        ?></h5>
+</div>
 
 <section id="blog" class="latest-blog-section section-padding">
     <div class="container">
-        <h2 class="section-title wow fadeInUp"><?php
 
-            echo $_GET["login"];
-            ?></h2>
         <div class="row">
 
 

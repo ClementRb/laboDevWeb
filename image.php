@@ -46,12 +46,13 @@ include 'header.php';
  <header class="entry-header">
 <ul class="left">
                
-                </ul>
+               
+                    </header>
+                <img src="/laboDevWeb//images/'. $donnees['nom_image']. '">
+                 </ul>
                 <ul class="right">
                     <li>Posté le : '. $donnees['date'].'</li>
                     </ul>
-                    </header>
-                <img src="/laboDevWeb//images/'. $donnees['nom_image']. '">
                 </article>
             </div>';
     ?>

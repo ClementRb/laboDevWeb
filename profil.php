@@ -15,15 +15,23 @@ include 'header.php';
 ?>
 <body>
 
-
+<div class="container ">
+    <h2 class="section-title wow fadeInUp "  style="margin-top: 50px;"><?php
+        $affiche_nom = $bdd->prepare('SELECT login FROM membre WHERE membre_id = ?');
+        $affiche_nom->execute(array($_SESSION["membre_id"]));
+        $result = $affiche_nom->fetch();
+        echo $result["login"];
+        ?></h2>
+    <h5 class="text-center wow fadeInUp"> <?php
+        $affiche_desc = $bdd->prepare('SELECT description FROM membre WHERE membre_id = ?');
+        $affiche_desc->execute(array($_SESSION["membre_id"]));
+        $result = $affiche_desc->fetch();
+        echo  $result["description"];
+        ?></h5><li><a href="ajout_desc.php" style="color: red ;">Modifier</a></li>
+</div>
 <section id="blog" class="latest-blog-section section-padding">
     <div class="container">
-        <h2 class="section-title wow fadeInUp"><?php
-            $affiche_nom = $bdd->prepare('SELECT login FROM membre WHERE membre_id = ?');
-            $affiche_nom->execute(array($_SESSION["membre_id"]));
-            $result = $affiche_nom->fetch();
-            echo $result["login"];
-            ?></h2>
+
         <div class="row">
 
 
